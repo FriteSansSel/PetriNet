@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PetriNet {
-	public List<Place> places;
-	public List<Transition> transitions;
+	public ArrayList<Place> places;
+	public ArrayList<Transition> transitions;
 	
 	public PetriNet() {
 		places = new ArrayList<>();
