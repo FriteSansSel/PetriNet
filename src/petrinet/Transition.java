@@ -1,19 +1,18 @@
 package petrinet;
 
 import java.util.ArrayList;
-import java.util.List; 
 
 public class Transition {
     // List to hold incoming arcs (InArcs) associated with this transition
-    public List<InArc> inArcs;
+    public ArrayList<InArc> inArcs;
     
     // List to hold outgoing arcs (OutArcs) associated with this transition
-    public List<OutArc> outArcs;
+    public ArrayList<OutArc> outArcs;
     
     // Constructor to initialize the Transition with empty lists for arcs
     public Transition() {
-        inArcs = new ArrayList<>(); 
-        outArcs = new ArrayList<>(); 
+        inArcs = new ArrayList<InArc>(); 
+        outArcs = new ArrayList<OutArc>(); 
     }
     
     // Method to add an inArc with a specified weight and a reference to a place
