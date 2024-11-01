@@ -1,10 +1,10 @@
-package classe;
+package petrinet;
 
-public class Zero extends InArc {
+public class InhibitorArc extends InArc {
 	public int weight;
 	public Place place;
 	
-	public Zero(Place place) {
+	public InhibitorArc(Place place) {
 		super(0, place);
 	}
 	

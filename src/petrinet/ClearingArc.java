@@ -1,10 +1,10 @@
-package classe;
+package petrinet;
 
-public class Videur extends InArc {
+public class ClearingArc extends InArc {
 	public int weight;
 	public Place place;
 	
-	public Videur(Place place) {
+	public ClearingArc(Place place) {
 		super(0, place);
 	}
 	

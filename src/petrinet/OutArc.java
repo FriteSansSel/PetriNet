@@ -1,4 +1,4 @@
-package classe;
+package petrinet;
 
 public class OutArc {
 	public int weight;
