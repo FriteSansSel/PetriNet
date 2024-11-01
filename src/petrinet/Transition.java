@@ -17,22 +17,22 @@ public class Transition {
     }
     
     // Method to add an inArc with a specified weight and a reference to a place
-    public void addInArc(int weight, Place place) {
+    public void addArcIn(int weight, Place place) {
         inArcs.add(new InArc(weight, place)); 
     }
     
     // Method to add an inhibitor arc  to the inArcs
-    public void addZeroArc(Place place) {
+    public void addArcInhibitor(Place place) {
         inArcs.add(new InhibitorArc(place)); 
     }
     
     // Method to add a clearing arc to the inArcs
-    public void addVideurArc(Place place) {
+    public void addArcClearing(Place place) {
         inArcs.add(new ClearingArc(place)); 
     }
     
     // Method to add an outArc arc with a specified weight and a reference to a place
-    public void addOutArc(int weight, Place place) {
+    public void addArcOut(int weight, Place place) {
         outArcs.add(new OutArc(weight, place)); 
     }
     

@@ -16,10 +16,10 @@ public class Main {
         Transition transition1 = new Transition();
         
         // Add an inArc from place1 with a weight of 1
-        transition1.addInArc(1, place1);
+        transition1.addArcIn(1, place1);
         
         // Add an outArc to place2 with a weight of 2
-        transition1.addOutArc(2, place2);
+        transition1.addArcOut(2, place2);
         
         // Display the token count in both places before triggering the transition
         System.out.println("Before :");
