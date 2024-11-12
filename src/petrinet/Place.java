@@ -1,16 +1,17 @@
 package petrinet;
 
 public class Place {
+	public static int IdCount=1;
 	// The number of tokens currently in this place
 	public int token;
-
+	public int id;
 	// Constructor to initialize the Place with a specified number of tokens
 	public Place(int token) {
 		if (token < 0) {
 			throw new IllegalArgumentException("Token count cannot be negative");
-			//System.out.println("Unable to initialize a place with negative tokens");
 		} else {
 			this.token = token; 
+			this.id=IdCount++;
 		}
 	}
 
