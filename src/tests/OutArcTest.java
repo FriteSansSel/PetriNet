@@ -1,6 +1,10 @@
 package tests;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import petrinet.OutArc;
 import petrinet.Place;
@@ -13,9 +17,17 @@ public class OutArcTest {
 
     @BeforeEach
     void setUp() {
-        Place place=new Place(5);
+    	place=new Place(5);
     	
-        OutArc outarc= new OutArc(5,place);
+        outarc= new OutArc(5,place);
+    }
+    
+    @Test
+    @Order(1)
+    void testStep() {
+    	outarc.step();
+    	assertEquals(10,place.getToken());
+    	
     }
     
     
