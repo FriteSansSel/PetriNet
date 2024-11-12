@@ -8,7 +8,19 @@ public class Arc {
     public Place place;
     
     public Arc(int weight, Place place) {
+    	if (place==null) {
+    		throw new NullPointerException("Null place was given");
+    	}
+    	else {
+    		this.place=place;
+    	}
     	this.place=place;
-    	this.weight=weight;
+    	if (weight<0) {
+    		throw new IllegalArgumentException("Weight cannot be negative");
+    	}
+    	else {
+    		this.weight=weight;
+    	}
     }
 }
+
