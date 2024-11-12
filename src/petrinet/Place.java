@@ -31,10 +31,10 @@ public class Place {
     // Method to remove a specified number of tokens from the place
     public void removeToken(int token) {
         // Check if there are enough tokens to remove
-        if (this.token >= token) {
-            this.token -= token; 
-        } else if (token < 0) {
+    	if (token < 0) {
         	System.out.println("Unable to remove negative tokens");
+        } else if (this.token >= token) {
+            this.token -= token; 
         } else {
             System.out.println("Not enough token"); 
         }
