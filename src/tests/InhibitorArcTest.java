@@ -16,7 +16,7 @@ public class InhibitorArcTest {
     void setUp() {
         // Initializes the Place with a certain number of tokens
         place = new Place(5);
-        // Initializes InhibitorArc with associated square
+        // Initializes InhibitorArc with associated place
         inhibitorArc = new InhibitorArc(place);
     }
 
