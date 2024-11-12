@@ -1,6 +1,6 @@
 package petrinet;
 
-public class InArc extends Arc{
+public class InArc extends Arc {
 	// Constructor to initialize the InArc with a specified weight and place
 	public InArc(int weight, Place place) {
 		super(weight,place);
