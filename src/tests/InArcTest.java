@@ -1,6 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,13 +14,14 @@ public class InArcTest {
 
     @BeforeEach
     void setUp() {
-        // Initializes Place object with 5 tokens
+        // Initializes Place with 5 tokens
         place = new Place(5);
         // Initializes InArc with a weight of 3 and the associated square
         inArc = new InArc(3, place);
     }
 
     @Test
+    @Order(1)
     void testInitialization() {
         // Checks that weight and place are correctly initialized
         assertEquals(3, inArc.weight);
@@ -27,12 +29,14 @@ public class InArcTest {
     }
 
     @Test
+    @Order(2)
     void testCanStepTrue() {
         // Checks that canStep() returns true when tokens are sufficient
         assertTrue(inArc.canStep());
     }
 
     @Test
+    @Order(3)
     void testCanStepFalse() {
         // Modifies the number of tokens in place to be insufficient for canStep()
         place.removeToken(4);
@@ -40,6 +44,7 @@ public class InArcTest {
     }
 
     @Test
+    @Order(4)
     void testStep() {
         // Calls step() to remove tokens and check that the place has been updated
         inArc.step();
@@ -47,6 +52,7 @@ public class InArcTest {
     }
 
     @Test
+    @Order(5)
     void testStepWithoutEnoughTokens() {
         // Try a step without sufficient tokens, and check that the number of tokens remains unchanged.
         place.removeToken(4);
