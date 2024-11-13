@@ -4,15 +4,22 @@ import java.util.ArrayList;
 
 public class PetriNet {
 	// ArrayList to hold the places in the Petri net
-	public ArrayList<Place> places;
-
+	private ArrayList<Place> places;
 	// ArrayList to hold the transitions in the Petri net
-	public ArrayList<Transition> transitions;
+	private ArrayList<Transition> transitions;
 
 	// Constructor to initialize the Petri net
 	public PetriNet() {
 		places = new ArrayList<>();
 		transitions = new ArrayList<>();
+	}
+	
+	public ArrayList<Place> getPlaces() {
+		return places;
+	}
+
+	public ArrayList<Transition> getTransitions() {
+		return transitions;
 	}
 
 	// Method to add a new place with a specified number of tokens
@@ -25,11 +32,11 @@ public class PetriNet {
 	//we must be careful to delete all the arcs linked to this place
 	public void removePlace(Place place) {
 		for (Transition t : this.transitions) {
-			t.inArcs.removeIf(inarc -> inarc.place.id == place.id); 
-			t.outArcs.removeIf(outarc -> outarc.place.id == place.id); 
+			t.getInArcs().removeIf(inarc -> inarc.getPlace().getId() == place.getId()); 
+			t.getOutArcs().removeIf(outarc -> outarc.getPlace().getId() == place.getId()); 
 		}
 		for (int i=0;i<this.places.size();i++){
-			if (this.places.get(i).id==place.id) {
+			if (this.places.get(i).getId()==place.getId()) {
 				this.places.remove(i);
 				break;
 			}
@@ -47,7 +54,7 @@ public class PetriNet {
 	//the transition.
 	public void removeTransition(Transition t) {
 		for (int i=0;i<this.transitions.size();i++){
-			if (this.transitions.get(i).id==t.id) {
+			if (this.transitions.get(i).getId()==t.getId()) {
 				this.transitions.remove(i);
 				break;
 			}
@@ -80,7 +87,7 @@ public class PetriNet {
 	//Method to trigger a transition
 	public void trigger(Transition t) {
 		this.transitions.stream()
-		.filter(t1-> t1.id==t.id)
+		.filter(t1-> t1.getId()==t.getId())
 		.forEach(Transition::trigger);
 	}
 

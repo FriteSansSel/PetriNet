@@ -9,6 +9,6 @@ public class ClearingArc extends InArc {
     // Method to perform the step action, which removes all tokens from the place
   
     public void step() {
-        place.removeToken(place.getToken());
+        getPlace().removeToken(getPlace().getToken());
     }
 }

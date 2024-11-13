@@ -8,7 +8,7 @@ public class InhibitorArc extends InArc {
     
     // Method to check if the inhibitor arc can step, which is true if the place has no tokens
     public boolean canStep() {
-        return place.getToken() == 0; 
+        return getPlace().getToken() == 0; 
     }
     
     // Method to perform the step action for the inhibitor arc, which does nothing

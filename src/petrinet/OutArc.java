@@ -8,6 +8,6 @@ public class OutArc extends Arc   {
     
     // Method to perform the step action, which adds tokens to the place according to the outArc's weight
     public void step() {
-        place.addToken(weight); 
+        getPlace().addToken(getWeight()); 
     }
 }

@@ -24,8 +24,8 @@ public class InArcTest {
     @Order(1)
     void testInitialization() {
         // Checks that weight and place are correctly initialized
-        assertEquals(3, inArc.weight);
-        assertEquals(place, inArc.place);
+        assertEquals(3, inArc.getWeight());
+        assertEquals(place, inArc.getPlace());
     }
 
     @Test

@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import java.util.stream.IntStream;
 
 public class Transition {
-	public static int IdCount=0;
-	
-	public int id;
+	private static int IdCount=0;
+	private int id;
 	// List to hold incoming arcs (InArcs) associated with this transition
-	public ArrayList<InArc> inArcs;
-
+	private ArrayList<InArc> inArcs;
 	// List to hold outgoing arcs (OutArcs) associated with this transition
-	public ArrayList<OutArc> outArcs;
+	private ArrayList<OutArc> outArcs;
 
 	// Constructor to initialize the Transition with empty lists for arcs
 	public Transition() {
@@ -20,11 +18,31 @@ public class Transition {
 		outArcs = new ArrayList<OutArc>(); 
 	}
 
+	public static int getIdCount() {
+		return IdCount;
+	}
+	
+	public static void setIdCount(int idCount) {
+		IdCount = idCount;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public ArrayList<InArc> getInArcs() {
+		return inArcs;
+	}
+
+	public ArrayList<OutArc> getOutArcs() {
+		return outArcs;
+	}
+	
 	// Method to add an inArc with a specified weight and a reference to a place
 	public void addArcIn(int weight, Place place) {
 		boolean canAdd=true;
 		for (int i=0;i<this.inArcs.size();i++) {
-			if (inArcs.get(i).place.id==place.id) {
+			if (inArcs.get(i).getPlace().getId()==place.getId()) {
 				canAdd=false;
 				break;
 			}
@@ -41,7 +59,7 @@ public class Transition {
 	public void addArcInhibitor(Place place) {
 		boolean canAdd=true;
 		for (int i=0;i<this.inArcs.size();i++) {
-			if (inArcs.get(i).place.id==place.id) {
+			if (inArcs.get(i).getPlace().getId()==place.getId()) {
 				canAdd=false;
 				break;
 			}
@@ -60,7 +78,7 @@ public class Transition {
 	public void addArcClearing(Place place) {
 		boolean canAdd=true;
 		for (int i=0;i<this.inArcs.size();i++) {
-			if (inArcs.get(i).place.id==place.id) {
+			if (inArcs.get(i).getPlace().getId()==place.getId()) {
 				canAdd=false;
 				break;
 			}
@@ -79,7 +97,7 @@ public class Transition {
 	public void addArcOut(int weight, Place place) {
 		boolean canAdd=true;
 		for (int i=0;i<this.outArcs.size();i++) {
-			if (outArcs.get(i).place.id==place.id) {
+			if (outArcs.get(i).getPlace().getId()==place.getId()) {
 				canAdd=false;
 				break;
 			}
@@ -94,7 +112,7 @@ public class Transition {
 	
 	public void removeArcIn(Place place) {
 		 for (int i=0;i<this.inArcs.size();i++) {
-			 if (this.inArcs.get(i).place.id==place.id) {
+			 if (this.inArcs.get(i).getPlace().getId()==place.getId()) {
 				 this.inArcs.remove(i);
 				 break;
 			 }
@@ -103,7 +121,7 @@ public class Transition {
 	
 	public void removeArcOut(Place place) {
 		 for (int i=0;i<this.outArcs.size();i++) {
-			 if (this.outArcs.get(i).place.id==place.id) {
+			 if (this.outArcs.get(i).getPlace().getId()==place.getId()) {
 				 this.outArcs.remove(i);
 				 break;
 			 }

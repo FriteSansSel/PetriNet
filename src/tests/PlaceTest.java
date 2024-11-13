@@ -16,7 +16,7 @@ public class PlaceTest {
     @BeforeEach
     void setUp() {
         // Initializes Place with 5 tokens before each test
-    	Place.IdCount=0;
+    	Place.setIdCount(0);
         place = new Place(5);
     }
 
@@ -30,9 +30,9 @@ public class PlaceTest {
     @Test
     @Order(2)
     void testConstructorId() {
-    	assertEquals(0,place.id);
+    	assertEquals(0,place.getId());
     	Place p2=new Place(3);
-    	assertEquals(1,p2.id);
+    	assertEquals(1,p2.getId());
     }
     
     @Test

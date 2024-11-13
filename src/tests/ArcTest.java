@@ -23,8 +23,8 @@ public class ArcTest {
     @Test
     @Order(1)
     void testArcConstuctor() {
-    	assertEquals(5,arc.weight);
-    	assertSame(place,arc.place);
+    	assertEquals(5,arc.getWeight());
+    	assertSame(place,arc.getPlace());
     }
     
     @Test

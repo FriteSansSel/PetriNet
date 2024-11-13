@@ -2,12 +2,12 @@ package petrinet;
 
 public class Arc {
 	 // The weight of the Arc
-    public int weight;
+    private int weight;
     
     // The place associated with this Arc
-    public Place place;
-    
-    public Arc(int weight, Place place) {
+    private Place place;
+
+	public Arc(int weight, Place place) {
     	if (place==null) {
     		throw new NullPointerException("Null place was given");
     	}
@@ -22,5 +22,13 @@ public class Arc {
     		this.weight=weight;
     	}
     }
+	
+    public int getWeight() {
+		return weight;
+	}
+
+	public Place getPlace() {
+		return place;
+	}
 }
 

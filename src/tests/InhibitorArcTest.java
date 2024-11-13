@@ -24,8 +24,8 @@ public class InhibitorArcTest {
     @Order(1)
     void testInitialization() {
         // Checks that the weight is always 0 in an InhibitorArc
-        assertEquals(0, inhibitorArc.weight);
-        assertEquals(place, inhibitorArc.place);
+        assertEquals(0, inhibitorArc.getWeight());
+        assertEquals(place, inhibitorArc.getPlace());
     }
 
     @Test

@@ -8,11 +8,11 @@ public class InArc extends Arc {
 
 	// Method to check if the transition can step based on the current token count in the place
 	public boolean canStep() {
-		return place.getToken() >= weight; 
+		return getPlace().getToken() >= getWeight(); 
 	}
 
 	// Method to perform the step action, removing the required tokens from the place
 	public void step() {
-		place.removeToken(weight);
+		getPlace().removeToken(getWeight());
 	}
 }

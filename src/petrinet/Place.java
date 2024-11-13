@@ -1,10 +1,12 @@
 package petrinet;
 
 public class Place {
-	public static int IdCount=0;
+	private static int IdCount=0;
+
 	// The number of tokens currently in this place
-	public int token;
-	public int id;
+	private int token;
+	private int id;
+	
 	// Constructor to initialize the Place with a specified number of tokens
 	public Place(int token) {
 		if (token < 0) {
@@ -13,6 +15,18 @@ public class Place {
 			this.token = token; 
 			this.id=IdCount++;
 		}
+	}
+
+	public static int getIdCount() {
+		return IdCount;
+	}
+
+	public static void setIdCount(int idCount) {
+		IdCount = idCount;
+	}
+	
+	public int getId() {
+		return id;
 	}
 
 	// Method to retrieve the current number of tokens in the place

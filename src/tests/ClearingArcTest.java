@@ -24,8 +24,8 @@ public class ClearingArcTest {
 	@Order(1)
 	void testInitialization() {
 		// Checks that the weight is always 1 in an ClearingArc
-		assertEquals(1, clearingArc.weight);
-		assertEquals(place, clearingArc.place);
+		assertEquals(1, clearingArc.getWeight());
+		assertEquals(place, clearingArc.getPlace());
 	}
 	
 	@Test
