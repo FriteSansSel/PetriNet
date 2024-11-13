@@ -78,8 +78,8 @@ public class PetriNetTest {
 	void testRemovePlace() {
 		Place p1=petriNet.addPlace(3);
 		Transition t1=petriNet.addTransition();
-		t1.addArcIn(2, p1);
-		t1.addArcOut(3, p1);
+		petriNet.addArcIn(t1, 2, p1);
+		petriNet.addArcOut(t1, 3, p1);
 		petriNet.removePlace(p1);
 		assertEquals(petriNet.places.size(),0);
 		assertEquals(t1.inArcs.size(), 0);
@@ -91,7 +91,7 @@ public class PetriNetTest {
 	void testRemoveArcIn() {
 		Place p1=petriNet.addPlace(3);
 		Transition t1=petriNet.addTransition();
-		t1.addArcIn(2, p1);
+		petriNet.addArcIn(t1, 2, p1);
 		petriNet.removeArcIn(t1, p1);
 		assertEquals(t1.inArcs.size(), 0);
 	}
@@ -101,7 +101,7 @@ public class PetriNetTest {
 	void testRemoveArcOut() {
 		Place p1=petriNet.addPlace(3);
 		Transition t1=petriNet.addTransition();
-		t1.addArcOut(2, p1);
+		petriNet.addArcOut(t1, 2, p1);
 		petriNet.removeArcOut(t1, p1);
 		assertEquals(t1.outArcs.size(), 0);
 
@@ -112,8 +112,8 @@ public class PetriNetTest {
 		Place p1=petriNet.addPlace(3);
 		Place p2=petriNet.addPlace(2);
 		Transition t1=petriNet.addTransition();
-		t1.addArcIn(2, p1);
-		t1.addArcOut(3, p2);
+		petriNet.addArcIn(t1, 2, p1);
+		petriNet.addArcOut(t1, 3, p2);
 		petriNet.trigger(t1);
 		assertEquals(1,p1.getToken());
 		assertEquals(5,p2.getToken());
