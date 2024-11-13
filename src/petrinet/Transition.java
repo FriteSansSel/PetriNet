@@ -1,7 +1,6 @@
 package petrinet;
 
 import java.util.ArrayList;
-import java.util.stream.IntStream;
 
 public class Transition {
 	private static int IdCount=0;

@@ -10,9 +10,4 @@ public class InhibitorArc extends InArc {
     public boolean canStep() {
         return getPlace().getToken() == 0; 
     }
-    
-    // Method to perform the step action for the inhibitor arc, which does nothing
-    public void step() {
-        
-    }
 }

@@ -38,6 +38,7 @@ public class ArcTest {
     @Order(3)
     void testArcPlaceNull() {
     	Exception exception=assertThrows(NullPointerException.class, ()-> {new Arc(5,null);});
+    	assertEquals("Null place was given", exception.getMessage());
     }
     
 }
