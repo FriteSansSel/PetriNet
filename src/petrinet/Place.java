@@ -1,7 +1,7 @@
 package petrinet;
 
 public class Place {
-	public static int IdCount=1;
+	public static int IdCount=0;
 	// The number of tokens currently in this place
 	public int token;
 	public int id;

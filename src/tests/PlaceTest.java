@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 import petrinet.Place;
 
 public class PlaceTest {
@@ -15,6 +16,7 @@ public class PlaceTest {
     @BeforeEach
     void setUp() {
         // Initializes Place with 5 tokens before each test
+    	Place.IdCount=1;
         place = new Place(5);
     }
 
@@ -25,16 +27,23 @@ public class PlaceTest {
     	Exception exception = assertThrows(IllegalArgumentException.class, () -> {new Place(-5);});
     	assertEquals("Token count cannot be negative", exception.getMessage());
     }
-    
     @Test
     @Order(2)
+    void testConstructorId() {
+    	assertEquals(1,place.id);
+    	Place p2=new Place(3);
+    	assertEquals(2,p2.id);
+    }
+    
+    @Test
+    @Order(3)
     void testGetToken() {
         // Checks that the initial number of tokens is the one supplied to the constructor and test getToken()
         assertEquals(5, place.getToken());
     }
 
     @Test
-    @Order(3)
+    @Order(4)
     void testAddToken() {
         // Adds 3 tokens and checks that the number of tokens has been updated correctly
         place.addToken(3);
@@ -42,7 +51,7 @@ public class PlaceTest {
     }
 
     @Test
-    @Order(4)
+    @Order(5)
     void testAddNegativeToken() {
     	// Checks that adding a negative number of tokens does nothing
     	place.addToken(-2);
@@ -50,7 +59,7 @@ public class PlaceTest {
     }
     
     @Test
-    @Order(5)
+    @Order(6)
     void testRemoveTokenSuccess() {
         // Remove 2 tokens and check that the number of tokens has been updated correctly
         place.removeToken(2);
@@ -58,7 +67,7 @@ public class PlaceTest {
     }
 
     @Test
-    @Order(6)
+    @Order(7)
     void testRemoveNegativeToken() {
     	// Checks that removing a negative number of tokens does nothing
     	place.removeToken(-2);
@@ -66,7 +75,7 @@ public class PlaceTest {
     }
     
     @Test
-    @Order(7)
+    @Order(8)
     void testRemoveTokenFailure() {
         // Attempt to withdraw more tokens than available and check that the number of tokens remains unchanged
         place.removeToken(10);

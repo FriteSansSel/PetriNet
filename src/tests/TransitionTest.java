@@ -48,10 +48,13 @@ public class TransitionTest {
 		Place place = new Place(5);
         transition.addArcIn(3, place);
         transition.addArcIn(4, place);
-        
+        assertEquals(1, transition.inArcs.size());
+        assertTrue(transition.inArcs.get(0) instanceof InArc);
+        assertEquals(3, transition.inArcs.get(0).weight);
+        assertSame(place, transition.inArcs.get(0).place);
 	}
 	@Test
-	@Order(3)
+	@Order(4)
 	 public void testAddArcOut() {
         Place place = new Place(5);
         transition.addArcOut(3, place);
@@ -61,7 +64,18 @@ public class TransitionTest {
         assertSame(place, transition.outArcs.get(0).place);
     }
 	@Test
-	@Order(3)
+	@Order(5)
+	public void testAddArcOutDuplicate() {
+		Place place = new Place(5);
+        transition.addArcOut(3, place);
+        transition.addArcOut(4, place);
+        assertEquals(1, transition.outArcs.size());
+        assertTrue(transition.outArcs.get(0) instanceof OutArc);
+        assertEquals(3, transition.outArcs.get(0).weight);
+        assertSame(place, transition.outArcs.get(0).place);
+	}
+	@Test
+	@Order(6)
 	 public void testAddArcInhibitor() {
         Place place = new Place(5);
         transition.addArcInhibitor(place);
@@ -71,7 +85,18 @@ public class TransitionTest {
         assertSame(place, transition.inArcs.get(0).place);
     }
 	@Test
-	@Order(4)
+	@Order(7)
+	public void testAddArcInhibitorDuplicate() {
+		Place place = new Place(5);
+        transition.addArcInhibitor(place);
+        transition.addArcInhibitor(place);
+        assertEquals(1, transition.inArcs.size());
+        assertTrue(transition.inArcs.get(0) instanceof InhibitorArc);
+        assertEquals(0, transition.inArcs.get(0).weight);
+        assertSame(place, transition.inArcs.get(0).place);
+	}
+	@Test
+	@Order(8)
 	 public void testAddArcClearing() {
         Place place = new Place(5);
         transition.addArcClearing(place);
@@ -80,9 +105,20 @@ public class TransitionTest {
         assertEquals(1, transition.inArcs.get(0).weight);
         assertSame(place, transition.inArcs.get(0).place);
     }
+	@Test
+	@Order(9)
+	public void testAddArcClearingDuplicate() {
+		Place place = new Place(5);
+        transition.addArcClearing(place);
+        transition.addArcClearing(place);
+        assertEquals(1, transition.inArcs.size());
+        assertTrue(transition.inArcs.get(0) instanceof ClearingArc);
+        assertEquals(1, transition.inArcs.get(0).weight);
+        assertSame(place, transition.inArcs.get(0).place);
+	}
 	
 	@Test
-	@Order(5)
+	@Order(10)
 	public void testTriggerTrue() {
 		Place p1=new Place(4);
 		Place p2=new Place(3);
@@ -102,7 +138,7 @@ public class TransitionTest {
 	}
 	
 	@Test
-	@Order(6)
+	@Order(11)
 	public void testTriggerFalse() {
 		Place p1=new Place(1);
 		Place p2=new Place(3);
