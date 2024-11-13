@@ -6,14 +6,14 @@ public class Main {
         PetriNet petrinet = new PetriNet();
         
         // Add a place with 2 tokens to the Petri net
-        petrinet.addPlace(2);
-        Place place1 = petrinet.places.get(0);
+        
+        Place place1 = petrinet.addPlace(2);
         
         // Add another place with 3 tokens to the Petri net
-        petrinet.addPlace(3);
-        Place place2 = petrinet.places.get(1); 
         
-        Transition transition1 = new Transition();
+        Place place2 = petrinet.addPlace(3); 
+        
+        Transition transition1 = petrinet.addTransition();
         
         // Add an inArc from place1 with a weight of 1
         transition1.addArcIn(1, place1);

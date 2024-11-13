@@ -16,12 +16,16 @@ public class PetriNet {
     }
     
     // Method to add a new place with a specified number of tokens
-    public void addPlace(int token) {
-        places.add(new Place(token));
+    public Place addPlace(int token) {
+    	Place p=new Place(token);
+        places.add(p);
+        return p;
     }
     
     // Method to add a new transition to the Petri net
-    public void addTransition() {
-    	transitions.add(new Transition());
+    public Transition addTransition() {
+    	Transition t=new Transition();
+    	transitions.add(t);
+    	return t;
     }
 }
