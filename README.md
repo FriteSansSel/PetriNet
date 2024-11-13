@@ -73,3 +73,10 @@ reçoit 2 jetons, car outArc a un poids de 2, le terminal affichera :
 After :
 place1 : 1
 place2 : 5
+
+Notre implémentation n'est pas conforme à notre diagramme de classe. En effet, au départ nous hésitions sur l'utilité de rajouté une class mère Arc, mais nous avons finalement décidé de faire une classe mère Arc afin de vérifier que la place et le poids donnés au constructeur soient conforme (Place non nulle et poids posiif) dans le but de factoriser le code.
+
+Nous avons rajouté un attribut id pour les classes Place et Transition afin de pouvoir distinguer facilement ces objets notamment pour la suppression et la gestion des doublons d'arcs.
+
+Enfin nous avons rajouter des méthodes dans la classe PetriNet pour ajouter les Arcs, les Places et les Transitions et aussi pour les supprimer.
+
