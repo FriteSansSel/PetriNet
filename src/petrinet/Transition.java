@@ -3,6 +3,9 @@ package petrinet;
 import java.util.ArrayList;
 
 public class Transition {
+	public static int IdCount=0;
+	
+	public int id;
 	// List to hold incoming arcs (InArcs) associated with this transition
 	public ArrayList<InArc> inArcs;
 
@@ -11,6 +14,7 @@ public class Transition {
 
 	// Constructor to initialize the Transition with empty lists for arcs
 	public Transition() {
+		id=IdCount++;
 		inArcs = new ArrayList<InArc>(); 
 		outArcs = new ArrayList<OutArc>(); 
 	}
