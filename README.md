@@ -4,6 +4,9 @@ pour représenter des systèmes travaillant sur des variables discrètes. Un ré
 compose de places, transitions et arcs, chacun jouant un rôle dans la simulation de la dynamique 
 des systèmes.
 
+Pré-requis:
+JUnit5 (pour les tests)
+
 Version eclipse : 2023-09
 Version JRE : JDK 21
 JDK compliance level 20
