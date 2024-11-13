@@ -33,10 +33,8 @@ public class PetriNet {
 				break;
 			}
 		}
-		
-
 	}
-
+	
 	// Method to add a new transition to the Petri net
 	public Transition addTransition() {
 		Transition t=new Transition();
@@ -51,6 +49,28 @@ public class PetriNet {
 				break;
 			}
 		}
+	}
+	public void addArcIn(Transition t, int weight, Place p) {
+		t.addArcIn(weight, p);
+	}
+	
+	public void addArcInhibitor(Transition t,Place p) {
+		t.addArcInhibitor(p);
+	}
+	
+	public void addArcClearing(Transition t, Place p) {
+		t.addArcClearing(p);
+	}
+	public void addArcOut(Transition t, int weight, Place p) {
+		t.addArcOut(weight, p);
+	}
+	
+	public void removeArcIn(Transition t, Place p) {
+		t.removeArcIn(p);	
+	}
+	
+	public void removeArcOut(Transition t, Place p) {
+		t.removeArcOut(p);
 	}
 
 	public void trigger(Transition t) {

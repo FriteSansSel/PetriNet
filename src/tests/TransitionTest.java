@@ -125,9 +125,27 @@ public class TransitionTest {
 		assertEquals(1, transition.inArcs.get(0).weight);
 		assertSame(place, transition.inArcs.get(0).place);
 	}
-
+	
 	@Test
 	@Order(11)
+	public void testRemoveArcIn() {
+		Place place = new Place(5);
+		transition.addArcIn(3, place);
+		transition.removeArcIn(place);
+		assertEquals(0, transition.inArcs.size());
+	}
+	
+	@Test
+	@Order(12)
+	public void testRemoveArcOut() {
+		Place place = new Place(5);
+		transition.addArcOut(3, place);
+		transition.removeArcOut(place);
+		assertEquals(0, transition.inArcs.size());
+	}
+
+	@Test
+	@Order(13)
 	public void testTriggerTrue() {
 		Place p1=new Place(4);
 		Place p2=new Place(3);
@@ -147,7 +165,7 @@ public class TransitionTest {
 	}
 
 	@Test
-	@Order(12)
+	@Order(14)
 	public void testTriggerFalse() {
 		Place p1=new Place(1);
 		Place p2=new Place(3);

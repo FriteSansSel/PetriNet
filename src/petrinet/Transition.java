@@ -1,6 +1,7 @@
 package petrinet;
 
 import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 public class Transition {
 	public static int IdCount=0;
@@ -89,6 +90,24 @@ public class Transition {
 		else {
 			System.out.println("No duplicate arcs between the same transition and place");
 		}
+	}
+	
+	public void removeArcIn(Place place) {
+		 for (int i=0;i<this.inArcs.size();i++) {
+			 if (this.inArcs.get(i).place.id==place.id) {
+				 this.inArcs.remove(i);
+				 break;
+			 }
+		 }
+	}
+	
+	public void removeArcOut(Place place) {
+		 for (int i=0;i<this.outArcs.size();i++) {
+			 if (this.outArcs.get(i).place.id==place.id) {
+				 this.outArcs.remove(i);
+				 break;
+			 }
+		 }
 	}
 
 
